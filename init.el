@@ -25,6 +25,7 @@
 (eval-after-load "erc"
   '((progn
       (require 'erc-nicklist)
+      (load (e-f-n "~/.emacs.d/.erc-auth")
       (setq erc-log-channels-directory (e-f-n "~/.erc/logs/")
 	    erc-email-userid   (user-login-name)
 	    erc-user-full-name (user-full-name)
