@@ -10,10 +10,13 @@
 
 (defalias 'e-f-n 'expand-file-name)
 
+(defvar system-prefix nil "system prefix")
+
 ;; load-paths
 (mapc 'add-to-load-path
       '("~/.emacs.d/erc-extras"
-	"~/.emacs.d/elisp"))
+		"~/.emacs.d/elisp"
+		"~/.emacs.d/elisp/erlware-mode"))
 
 ;; key-bindings
 (mapc
@@ -34,10 +37,9 @@
 		  erc-nick-uniquifier "-"
 		  erc-try-new-nick-p  t
 		  erc-save-buffer-on-part t
-		  erc-modules '(button 
-				completion netsplit
-				match notify services
-				track stamp smiley ring)
+		  erc-modules '(button
+						completion netsplit match notify services
+						track stamp smiley ring)
 		  erc-server-coding-system '(utf-8 . utf-8)
 		  erc-interpret-mirc-color t
 		  erc-prompt-for-nickserv-password nil
@@ -61,7 +63,15 @@
 (autoload 'magit-status "magit" "Magit" t)
 
 ;; miscellaneous
+
+; set system prefix depending on the system we're running on:
+; on GNU/Linux, default prefix is /usr
+; on BSDs, default prefix is /usr/local
 (prefer-coding-system 'utf-8)
+
+(setq system-prefix (cond ((eq system-type 'gnu/linux) "/usr")
+						  ((eq system-type 'berkley-unix) "/usr/local")))
+
 (setq inhibit-startup-screen t
       custom-file (e-f-n "~/.emacs.d/custom.el"))
 
@@ -70,6 +80,10 @@
 
 (add-hook 'emacs-startup-hook 'server-start)
 
+;; erlang
+(setq erlang-root-dir (concat system-prefix "/lib/erlang")
+	  erlang-man-root-dir erlang-root-dir)
+(require 'erlang-start)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
