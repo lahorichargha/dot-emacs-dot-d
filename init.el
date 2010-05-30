@@ -18,8 +18,8 @@
 
 ;; load-paths
 (mapc 'add-to-load-path
-      '("~/.emacs.d/erc-extras"
-		"~/.emacs.d/elisp"
+      '("~/.emacs.d/elisp"
+		"~/.emacs.d/elisp/erc-extras"
 		"~/.emacs.d/elisp/apel"
 		"~/.emacs.d/elisp/bbdb/lisp"
 		"~/.emacs.d/elisp/emacs-w3m"
