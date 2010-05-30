@@ -8,6 +8,10 @@
   (interactive)
   (byte-compile-file (buffer-file-name)))
 
+(defmacro set-tab-width(n)
+  "Returns a lambda to set tab-width to n"
+  `(lambda nil (setq tab-width ,n)))
+
 (defalias 'e-f-n 'expand-file-name)
 
 (defvar system-prefix nil "system prefix")
@@ -16,6 +20,10 @@
 (mapc 'add-to-load-path
       '("~/.emacs.d/erc-extras"
 		"~/.emacs.d/elisp"
+		"~/.emacs.d/elisp/apel"
+		"~/.emacs.d/elisp/bbdb/lisp"
+		"~/.emacs.d/elisp/emacs-w3m"
+		"~/.emacs.d/elisp/elscreen"
 		"~/.emacs.d/elisp/erlware-mode"))
 
 ;; key-bindings
@@ -75,7 +83,7 @@
 (setq inhibit-startup-screen t
       custom-file (e-f-n "~/.emacs.d/custom.el"))
 
-(add-to-list 'Info-default-directory-list (expand-file-name "~/.info"))
+(add-to-list 'Info-default-directory-list (e-f-n "~/.info"))
 (add-to-list 'default-frame-alist '(cursor-type . bar))
 
 (add-hook 'emacs-startup-hook 'server-start)
@@ -83,7 +91,55 @@
 ;; erlang
 (setq erlang-root-dir (concat system-prefix "/lib/erlang")
 	  erlang-man-root-dir erlang-root-dir)
+(add-hook 'erlang-mode-hook (set-tab-width 4))
 (require 'erlang-start)
+
+;; haskell
+(load (e-f-n "~/.emacs.d/elisp/haskell-mode/haskell-site-file"))
+(dolist (h '(turn-on-haskell-indentation
+			 turn-on-haskell-doc-mode
+			 turn-on-haskell-font-lock
+			 imenu-add-menubar-index))
+  (add-hook 'haskell-mode-hook h))
+
+;; lisp
+(add-hook 'emacs-lisp-mode-hook (set-tab-width 4))
+
+;; w3m
+(require 'w3m-load)
+(setq w3m-use-cookies t
+	  w3m-use-toolbar t
+	  w3m-default-display-inline-images t
+	  w3m-use-favicon t
+	  browse-url-browser-function 'w3m-browse-url)
+
+(global-set-key "\C-xm" 'browse-url-at-point)
+
+(eval-after-load "w3m-search"
+  '(progn
+	 (add-to-list 'w3m-search-engine-alist
+				  '("en.wiktionary"
+					"http://en.wiktionary.org/wiki/Special:Search?search=%s"
+					nil))
+	 (add-to-list 'w3m-uri-replace-alist
+				  '("\\`wp:" w3m-search-uri-replace "en.wikipedia"))
+	 (add-to-list 'w3m-uri-replace-alist
+				  '("\\`wy:" w3m-search-uri-replace "en.wiktionary"))))
+
+
+;; bbdb
+(eval-after-load "bbdb"
+  '(progn
+	 (bbdb-initialize 'gnus 'sc 'message 'sendmail)
+	 (setq bbdb-dwim-net-address-allow-redundancy t)
+	 (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
+	 (eval-after-load "sendmail"
+	   (add-hook 'mail-setup-hook 'bbdb-insinuate-sendmail))))
+(require 'bbdb-autoloads)
+
+;; elscreen
+(setq elscreen-prefix-key "\C-z")
+(require 'elscreen)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
