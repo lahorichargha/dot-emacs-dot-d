@@ -71,16 +71,16 @@
 (autoload 'magit-status "magit" "Magit" t)
 
 ;; miscellaneous
+(prefer-coding-system 'utf-8)
 
 ; set system prefix depending on the system we're running on:
 ; on GNU/Linux, default prefix is /usr
 ; on BSDs, default prefix is /usr/local
-(prefer-coding-system 'utf-8)
-
 (setq system-prefix (cond ((eq system-type 'gnu/linux) "/usr")
 						  ((eq system-type 'berkley-unix) "/usr/local")))
 
 (setq inhibit-startup-screen t
+	  vc-handled-backends (remove 'Git vc-handled-backends)
       custom-file (e-f-n "~/.emacs.d/custom.el"))
 
 (add-to-list 'Info-default-directory-list (e-f-n "~/.info"))
@@ -140,6 +140,9 @@
 ;; elscreen
 (setq elscreen-prefix-key "\C-z")
 (require 'elscreen)
+
+;; c-mode
+(add-hook 'c-mode-hook (set-tab-width 4))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
