@@ -8,6 +8,16 @@
   (interactive)
   (byte-compile-file (buffer-file-name)))
 
+(defun my-unhex-selected-string()
+  "Unhexifies the selected text in the buffer"
+  (interactive)
+  (when mark-active
+    (save-excursion
+      (let ((t-t-r (buffer-substring-no-properties (region-beginning)
+												   (region-end) )))
+		(delete-region (region-beginning) (region-end))
+		(insert-before-markers (url-unhex-string t-t-r))))))
+
 (defmacro set-tab-width(n)
   "Returns a lambda to set tab-width to n"
   `(lambda nil (setq tab-width ,n)))
@@ -32,6 +42,7 @@
  `((,(kbd "<f2>") . save-buffer)
    (,(kbd "<f3>") . load-file)
    (,(kbd "<f9>") . my-byte-compile-current-file)
+   (,(kbd "<C-c> <C-h>") . my-unhex-selected-string)
    (,(kbd "<s-delete>") . delete-region)))
 
 ;; erc
@@ -87,6 +98,8 @@
 (add-to-list 'default-frame-alist '(cursor-type . bar))
 
 (add-hook 'emacs-startup-hook 'server-start)
+
+(require 'boxquote)
 
 ;; erlang
 (setq erlang-root-dir (concat system-prefix "/lib/erlang")
