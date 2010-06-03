@@ -155,7 +155,11 @@
 (require 'elscreen)
 
 ;; c-mode
-(add-hook 'c-mode-hook (set-tab-width 4))
+(add-hook 'c-mode-hook (lambda nil
+						 (progn
+						   (c-set-style "bsd")
+						   (setq c-basic-offset 4)
+						   (set tab-width 4))))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
