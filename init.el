@@ -1,3 +1,6 @@
+(eval-when-compile
+  (require 'cc-mode))
+
 ;; definintions
 (defun add-to-load-path (path)
   "Adds path to the load-path"
@@ -158,8 +161,16 @@
 (add-hook 'c-mode-hook (lambda nil
 						 (progn
 						   (c-set-style "bsd")
-						   (setq c-basic-offset 4)
-						   (set tab-width 4))))
+						   (setq c-basic-offset 4
+								 tab-width 4))))
+
+;; pkgbuild-mode
+(autoload 'pkgbuild-mode "pkgbuild-mode.el" "PKGBUILD mode." t)
+(setq auto-mode-alist (append '(("/PKGBUILD$" . pkgbuild-mode))
+							  auto-mode-alist))
+
+;; scim-bridge
+(require 'scim-bridge)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
