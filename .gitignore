@@ -4,3 +4,8 @@ auto-save-list
 \#*
 .#*
 .erc-auth
+CVS
+.git
+.bzr
+.svn
+.hg
