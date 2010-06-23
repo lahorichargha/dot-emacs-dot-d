@@ -1,3 +1,6 @@
 [submodule "elisp/slime"]
 	path = elisp/slime
 	url = git://git.boinkor.net/slime.git
+[submodule "elisp/clojure-mode"]
+	path = elisp/clojure-mode
+	url = git://github.com/jochu/clojure-mode.git
