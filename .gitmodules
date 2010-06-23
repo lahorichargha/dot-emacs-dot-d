@@ -1,0 +1,3 @@
+[submodule "elisp/slime"]
+	path = elisp/slime
+	url = git://git.boinkor.net/slime.git
