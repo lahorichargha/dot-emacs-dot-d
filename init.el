@@ -32,11 +32,14 @@
 ;; load-paths
 (mapc 'add-to-load-path
       '("~/.emacs.d/elisp"
+		"~/.emacs.d/elisp/magit"
 		"~/.emacs.d/elisp/erc-extras"
 		"~/.emacs.d/elisp/apel"
 		"~/.emacs.d/elisp/bbdb/lisp"
 		"~/.emacs.d/elisp/emacs-w3m"
 		"~/.emacs.d/elisp/elscreen"
+		"~/.emacs.d/elisp/clojure-mode"
+		"~/.emacs.d/elisp/slime"
 		"~/.emacs.d/elisp/erlware-mode"))
 
 ;; key-bindings
@@ -86,12 +89,13 @@
 
 ;; miscellaneous
 (prefer-coding-system 'utf-8)
+(setq epg-gpg-program (executable-find "gpg2"))
 
 ; set system prefix depending on the system we're running on:
 ; on GNU/Linux, default prefix is /usr
 ; on BSDs, default prefix is /usr/local
 (setq system-prefix (cond ((eq system-type 'gnu/linux) "/usr")
-						  ((eq system-type 'berkley-unix) "/usr/local")))
+						  ((eq system-type 'berkeley-unix) "/usr/local")))
 
 (setq inhibit-startup-screen t
 	  vc-handled-backends (remove 'Git vc-handled-backends)
@@ -171,6 +175,16 @@
 
 ;; scim-bridge
 (require 'scim-bridge)
+
+;; clojure-mode
+(require 'clojure-mode)
+
+;; slime
+(eval-after-load "slime" 
+  '(progn (slime-setup '(slime-repl))))
+
+(require 'slime)
+(slime-setup)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
