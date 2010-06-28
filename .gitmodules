@@ -10,3 +10,6 @@
 [submodule "elisp/identica-mode"]
 	path = elisp/identica-mode
 	url = git://git.savannah.nongnu.org/identica-mode.git
+[submodule "elisp/jd-el"]
+	path = elisp/jd-el
+	url = git://git.naquadah.org/~jd/jd-el.git
