@@ -7,9 +7,10 @@
   (add-to-list 'load-path (expand-file-name path)))
 
 (defun my-byte-compile-current-file ()
-  "Bytes compile current-file"
+  "Byte compiles file associated with the current-buffer"
   (interactive)
-  (byte-compile-file (buffer-file-name)))
+  (when (buffer-file-name)
+	(byte-compile-file (buffer-file-name))))
 
 (defun my-unhex-selected-string()
   "Unhexifies the selected text in the buffer"
@@ -40,6 +41,7 @@
 		"~/.emacs.d/elisp/elscreen"
 		"~/.emacs.d/elisp/clojure-mode"
 		"~/.emacs.d/elisp/slime"
+		"~/.emacs.d/elisp/jd-el"
 		"~/.emacs.d/elisp/erlware-mode"))
 
 ;; key-bindings
@@ -83,6 +85,7 @@
 (display-time-mode t)
 (menu-bar-mode t)
 (column-number-mode 1)
+(delete-selection-mode t)
 
 ;; autoloads
 (autoload 'magit-status "magit" "Magit" t)
