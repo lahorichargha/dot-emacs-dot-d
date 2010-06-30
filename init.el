@@ -24,10 +24,10 @@
 
 (defun my-tagline ()
   "Returns a tagline from taglines.txt"
-  (let ((buf (find-file-noselect 
-			(e-f-n (concat user-emacs-directory "taglines.txt"))))
+  (let ((taglinefile (e-f-n (concat user-emacs-directory "taglines.txt")))
 		beg end text)
-	(with-current-buffer buf
+	(with-temp-buffer
+	  (insert-file-contents taglinefile)
 	  (goto-char (point-min))
 	  (loop while (looking-at "^#")
 			do
@@ -35,9 +35,9 @@
 	  (forward-line 0)
 	  (setq beg (point))
 	  (forward-line 1)
-	  (setq end (- (point) 1))
+	  (setq end (1- (point)))
+	  (fill-region beg end)
 	  (setq text (buffer-substring beg end)))
-	(kill-buffer buf)
 	text))
 
 (defmacro set-tab-width(n)
