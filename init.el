@@ -22,6 +22,24 @@
 		(delete-region (region-beginning) (region-end))
 		(insert-before-markers (url-unhex-string t-t-r))))))
 
+(defun my-tagline ()
+  "Returns a tagline from taglines.txt"
+  (let ((buf (find-file-noselect 
+			(e-f-n (concat user-emacs-directory "taglines.txt"))))
+		beg end text)
+	(with-current-buffer buf
+	  (goto-char (point-min))
+	  (loop while (looking-at "^#")
+			do
+			(goto-char (1+ (random (point-max)))))
+	  (forward-line 0)
+	  (setq beg (point))
+	  (forward-line 1)
+	  (setq end (- (point) 1))
+	  (setq text (buffer-substring beg end)))
+	(kill-buffer buf)
+	text))
+
 (defmacro set-tab-width(n)
   "Returns a lambda to set tab-width to n"
   `(lambda nil (setq tab-width ,n)))
