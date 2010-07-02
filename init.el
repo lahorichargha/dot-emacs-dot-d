@@ -49,18 +49,19 @@
 (defvar system-prefix nil "system prefix")
 
 ;; load-paths
-(mapc 'add-to-load-path
-      '("~/.emacs.d/elisp"
-		"~/.emacs.d/elisp/magit"
-		"~/.emacs.d/elisp/erc-extras"
-		"~/.emacs.d/elisp/apel"
-		"~/.emacs.d/elisp/bbdb/lisp"
-		"~/.emacs.d/elisp/emacs-w3m"
-		"~/.emacs.d/elisp/elscreen"
-		"~/.emacs.d/elisp/clojure-mode"
-		"~/.emacs.d/elisp/slime"
-		"~/.emacs.d/elisp/jd-el"
-		"~/.emacs.d/elisp/erlware-mode"))
+(mapc (lambda (x) (add-to-load-path (concat user-emacs-directory x)))
+      '("elisp"
+		"elisp/magit"
+		"elisp/erc-extras"
+		"elisp/apel"
+		"elisp/bbdb/lisp"
+		"elisp/emacs-w3m"
+		"elisp/elscreen"
+		"elisp/clojure-mode"
+		"elisp/slime"
+		"elisp/jd-el"
+		"elisp/erlware-mode"
+		"elisp/auto-complete"))
 
 ;; key-bindings
 (mapc
@@ -75,7 +76,7 @@
 (eval-after-load "erc"
   '((progn
       (require 'erc-nicklist)
-      (load (e-f-n "~/.emacs.d/.erc-auth")
+      (load (e-f-n (concat user-emacs-directory ".erc-auth"))
 	    (setq erc-log-channels-directory (e-f-n "~/.erc/logs/")
 		  erc-email-userid   (user-login-name)
 		  erc-user-full-name (user-full-name)
@@ -120,7 +121,7 @@
 
 (setq inhibit-startup-screen t
 	  vc-handled-backends (remove 'Git vc-handled-backends)
-      custom-file (e-f-n "~/.emacs.d/custom.el"))
+      custom-file (e-f-n (concat user-emacs-directory "custom.el")))
 
 (add-to-list 'Info-default-directory-list (e-f-n "~/.info"))
 (add-to-list 'default-frame-alist '(cursor-type . bar))
@@ -136,7 +137,7 @@
 (require 'erlang-start)
 
 ;; haskell
-(load (e-f-n "~/.emacs.d/elisp/haskell-mode/haskell-site-file"))
+(load (e-f-n (concat user-emacs-directory "elisp/haskell-mode/haskell-site-file")))
 (dolist (h '(turn-on-haskell-indentation
 			 turn-on-haskell-doc-mode
 			 turn-on-haskell-font-lock
@@ -206,6 +207,11 @@
 
 (require 'slime)
 (slime-setup)
+
+;; auto-complete
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories (e-f-n (concat user-emacs-directory "elisp/auto-complete/dict")))
+(ac-config-default)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
