@@ -213,6 +213,12 @@
 (add-to-list 'ac-dictionary-directories (e-f-n (concat user-emacs-directory "elisp/auto-complete/dict")))
 (ac-config-default)
 
+;; rainbow-mode
+(eval-after-load "rainbow-mode"
+  '(setq rainbow-x-colors t rainbow-html-colors t))
+
+(autoload 'rainbow-mode "rainbow-mode" "Loads rainbow-mode minor mode" t)
+
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; tab-width: 4
