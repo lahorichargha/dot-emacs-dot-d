@@ -74,24 +74,27 @@
 
 ;; erc
 (eval-after-load "erc"
-  '((progn
+  '(progn
       (require 'erc-nicklist)
-      (load (e-f-n (concat user-emacs-directory ".erc-auth"))
-	    (setq erc-log-channels-directory (e-f-n "~/.erc/logs/")
-		  erc-email-userid   (user-login-name)
-		  erc-user-full-name (user-full-name)
-		  erc-nick-uniquifier "-"
-		  erc-try-new-nick-p  t
-		  erc-save-buffer-on-part t
-		  erc-modules '(button
-						completion netsplit match notify services
-						track stamp smiley ring)
-		  erc-server-coding-system '(utf-8 . utf-8)
-		  erc-interpret-mirc-color t
-		  erc-prompt-for-nickserv-password nil
-		  erc-auto-query 'buffer)
-	    (add-hook 'erc-insert-post-hook 'erc-save-buffer-in-logs)
-	    (erc-update-modules)))))
+      (load (e-f-n (concat user-emacs-directory ".erc-auth")))
+	  (setq erc-log-channels-directory (e-f-n "~/.erc/logs/")
+			erc-email-userid   (user-login-name)
+			erc-user-full-name (concat (user-full-name) " <FreeBSD.org!ashish>")
+			erc-nick-uniquifier "-"
+			erc-try-new-nick-p  t
+			erc-save-buffer-on-part t
+			erc-interpret-controls-p 'remove
+			erc-interpret-mirc-color t
+			erc-modules '(button completion netsplit match notify services
+						  track stamp smiley ring)
+			erc-server-coding-system '(utf-8 . utf-8)
+			erc-interpret-mirc-color t
+			erc-prompt-for-nickserv-password nil
+			erc-auto-query 'buffer)
+	  (add-hook 'erc-insert-post-hook 'erc-save-buffer-in-logs)
+	  (erc-update-modules)))
+
+(autoload 'erc-tls "erc" "starts ERC in TLS mode" t)
 
 ;; uniquify
 (require 'uniquify)
@@ -203,14 +206,25 @@
 
 ;; slime
 (eval-after-load "slime" 
-  '(progn (slime-setup '(slime-repl))))
+  '(progn 
+	 (slime-setup '(slime-repl))
+	 (let (exfile)
+	   (dolist (l '((ccl64 . "ccl64")
+					(ccl   . "ccl")
+					(sbcl  . "sbcl")
+					(clisp . "clisp")))
+		 (when (setq exfile (executable-find (cdr l)))
+		   (add-to-list 'slime-lisp-implementations
+						(list (car l) 
+							  (list exfile))))))))
 
 (require 'slime)
 (slime-setup)
 
 ;; auto-complete
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories (e-f-n (concat user-emacs-directory "elisp/auto-complete/dict")))
+(add-to-list 'ac-dictionary-directories
+			 (e-f-n (concat user-emacs-directory "elisp/auto-complete/dict")))
 (ac-config-default)
 
 ;; rainbow-mode
