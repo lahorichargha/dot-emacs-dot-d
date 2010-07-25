@@ -109,3 +109,5 @@
 “We've so many people in India, that we're able to route each network packet manually.” (nobotz)
 “She dump(1)-ed me without caring to restore(1).” (abbe, 2005)
 “With no power, comes no responsibility.” (Kick-Ass, 2010)
+“Keep your BitTorrent clients running and make the world a better place to live in.” (Sir Debarshi Ray, ".signature", 2010)
+“I find it amazing that a man who lives in France can sue a magazine that is published in America in a British courtroom.” ("Graydon Carter", 2005)
