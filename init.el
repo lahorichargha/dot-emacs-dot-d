@@ -62,6 +62,7 @@
 		"elisp/slime"
 		"elisp/jd-el"
 		"elisp/erlware-mode"
+		"elisp/identica-mode"
 		"elisp/auto-complete"))
 
 ;; key-bindings
@@ -233,6 +234,10 @@
   '(setq rainbow-x-colors t rainbow-html-colors t))
 
 (autoload 'rainbow-mode "rainbow-mode" "Loads rainbow-mode minor mode" t)
+
+;; identica-mode
+(autoload 'identica "identica-mode" "Loads identica-mode major mode" t)
+(autoload 'identica-mode "identica-mode" "Loads identica-mode major mode" t)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
