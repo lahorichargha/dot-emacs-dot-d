@@ -1,4 +1,5 @@
 (eval-when-compile
+  (require 'boxquote)
   (require 'cc-mode))
 
 ;; definintions
@@ -67,7 +68,7 @@
 (mapc
  (lambda (binding) (global-set-key (car binding) (cdr binding)))
  `((,(kbd "<f2>") . save-buffer)
-   (,(kbd "<f3>") . load-file)
+   (,(kbd "S-<f3>") . load-file)
    (,(kbd "<f9>") . my-byte-compile-current-file)
    (,(kbd "C-c C-h") . my-unhex-selected-string)
    (,(kbd "<s-delete>") . delete-region)))
