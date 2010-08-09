@@ -111,3 +111,13 @@
 “With no power, comes no responsibility.” (Kick-Ass, 2010)
 “Keep your BitTorrent clients running and make the world a better place to live in.” (Sir Debarshi Ray, ".signature", 2010)
 “I find it amazing that a man who lives in France can sue a magazine that is published in America in a British courtroom.” ("Graydon Carter", 2005)
+“The chains of marriage are so heavy that it takes two to carry them, and sometimes three.” ("Alexandre Dumas")
+“Private misfortunes must never induce us to neglect public affairs.” ("Alexandre Dumas", "The Count of Monte Cristo", 1845-1846)
+“In reality there are as many religions as there are individuals.” ("Mahatma Gandhi", "Hind Swaraj", 1908)
+“I never commit to memory anything that can easily be looked up in a book.” ("Albert Einstein", "Sidelights on Relativity", 1983)
+“One reason why mathematics enjoys special esteem, above all other sciences, is that its laws are absolutely certain and indisputable, while those of other sciences are to some extent debatable and in constant danger of being overthrown by newly discovered facts.” ("Albert Einstein", "Sidelights on Relativity", 1983)
+“As far as the laws of mathematics refer to reality, they are not certain; and as far as they are certain, they do not refer to reality.” ("Albert Einstein", "Sidelights on Relativity", 1983)
+“Maxwell's equations have had a greater impact on human history than any ten presidents.” ("Carl Sagan")
+“From a long view of the history of mankind — seen from, say, ten thousand years from now — there can be little doubt that the most significant event of the 19th century will be judged as Maxwell's discovery of the laws of electrodynamics. The American Civil War will pale into provincial insignificance in comparison with this important scientific event of the same decade.” ("Richard Feynman")
+
+
