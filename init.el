@@ -63,6 +63,7 @@
 		"elisp/jd-el"
 		"elisp/erlware-mode"
 		"elisp/identica-mode"
+		"elisp/haskell-mode-exts"
 		"elisp/auto-complete"))
 
 ;; key-bindings
@@ -148,6 +149,11 @@
 			 turn-on-haskell-font-lock
 			 imenu-add-menubar-index))
   (add-hook 'haskell-mode-hook h))
+
+(eval-after-load "haskell-mode"
+  '(progn
+	 (require 'haskell-align-imports)
+	 (define-key haskell-mode-map (kbd "C-c .") 'haskell-align-imports)))
 
 ;; lisp
 (add-hook 'emacs-lisp-mode-hook (set-tab-width 4))
