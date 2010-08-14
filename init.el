@@ -153,6 +153,9 @@
 (eval-after-load "haskell-mode"
   '(progn
 	 (require 'haskell-align-imports)
+	 (let ((path-to-ghci (executable-find "ghci")))
+	   (when path-to-ghci
+		 (setq haskell-program-name path-to-ghci)))
 	 (define-key haskell-mode-map (kbd "C-c .") 'haskell-align-imports)))
 
 ;; lisp
