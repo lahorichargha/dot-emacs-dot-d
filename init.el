@@ -64,6 +64,7 @@
 		"elisp/erlware-mode"
 		"elisp/identica-mode"
 		"elisp/haskell-mode-exts"
+		"elisp/lusty-emacs"
 		"elisp/auto-complete"))
 
 ;; key-bindings
@@ -247,6 +248,13 @@
 ;; identica-mode
 (autoload 'identica "identica-mode" "Loads identica-mode major mode" t)
 (autoload 'identica-mode "identica-mode" "Loads identica-mode major mode" t)
+
+;; lusty
+(when (require 'lusty-explorer nil 'noerror)
+
+  ;; overrride the normal file-opening, buffer switching
+  (global-set-key (kbd "C-x C-f") 'lusty-file-explorer)
+  (global-set-key (kbd "C-x b")   'lusty-buffer-explorer))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
