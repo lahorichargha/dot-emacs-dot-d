@@ -19,3 +19,6 @@
 [submodule "elisp/haskell-mode-exts"]
 	path = elisp/haskell-mode-exts
 	url = git://github.com/chrisdone/haskell-mode-exts.git
+[submodule "elisp/lusty-emacs"]
+	path = elisp/lusty-emacs
+	url = git://github.com/sjbach/lusty-emacs.git
