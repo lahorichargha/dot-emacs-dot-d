@@ -187,7 +187,7 @@
   `(defun ,(intern (concat "my-blog-" user))
 	 nil
 	 (interactive)
-	 (setq blog-server-url ,(concat "http://" blogid "/xmlrpc.php")
+	 (setq blog-server-url ,(concat "https://" blogid "/xmlrpc.php")
 		   blog-server-user ,user
 		   blog-server-pass ,pwd
 		   blog-server-weblog-id ,blogid)))
