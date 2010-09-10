@@ -10,3 +10,5 @@ CVS
 .svn
 .hg
 tramp
+.blog.el
+.blog.elc
