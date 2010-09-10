@@ -72,6 +72,8 @@
 		"elisp/identica-mode"
 		"elisp/haskell-mode-exts"
 		"elisp/lusty-emacs"
+		"elisp/muse/lisp"
+		"elisp/blog"
 		"elisp/auto-complete"))
 
 ;; key-bindings
@@ -291,6 +293,8 @@
 
 (add-hook 'org-mode-hook 'flyspell-mode)
 
+;; load blog settings
+(load ".blog.el")
 
 ;; Local Variables:
 ;; mode: emacs-lisp
