@@ -45,6 +45,13 @@
   "Returns a lambda to set tab-width to n"
   `(lambda nil (setq tab-width ,n)))
 
+(defun lookup-tag()
+  (interactive)
+  (find-tag
+   (or
+	(current-word)
+	(read-from-minibuffer "Lookup tag ?"))))
+
 (defalias 'e-f-n 'expand-file-name)
 
 (defvar system-prefix nil "system prefix")
@@ -72,8 +79,13 @@
  (lambda (binding) (global-set-key (car binding) (cdr binding)))
  `((,(kbd "<f2>") . save-buffer)
    (,(kbd "S-<f3>") . load-file)
+   (,(kbd "C-t") . pop-tag-mark)
+   (,(kbd "C-]") . lookup-tag)
    (,(kbd "<f9>") . my-byte-compile-current-file)
    (,(kbd "C-c C-h") . my-unhex-selected-string)
+   ("\C-cl" . org-store-link)
+   ("\C-ca" . org-agenda)
+   ("\C-cb" . org-iswitchb)
    (,(kbd "<s-delete>") . delete-region)))
 
 ;; erc
@@ -255,6 +267,30 @@
   ;; overrride the normal file-opening, buffer switching
   (global-set-key (kbd "C-x C-f") 'lusty-file-explorer)
   (global-set-key (kbd "C-x b")   'lusty-buffer-explorer))
+
+;; org-mode
+(require 'org-agenda)
+
+(setq org-agenda-files (mapcar 'expand-file-name '("~/docs/agenda/work"
+												   "~/docs/agenda/personal"))
+	  org-log-done t)
+
+(eval-after-load "org-publish"
+  '(setq org-publish-project-alist
+          `(("agenda"
+             :base-directory ,(expand-file-name "~/docs/org-projects/agenda/")
+             :base-extension "org"
+             :publishing-directory ,(expand-file-name "~/public_html/agenda/")
+             :publishing-function org-publish-org-to-html
+             :headline-levels 3
+             :auto-preamble t
+             :auto-index t
+             :index-filename "index.org"
+             :index-title "Agenda"
+             :auto-postamble nil))))
+
+(add-hook 'org-mode-hook 'flyspell-mode)
+
 
 ;; Local Variables:
 ;; mode: emacs-lisp

@@ -22,3 +22,6 @@
 [submodule "elisp/lusty-emacs"]
 	path = elisp/lusty-emacs
 	url = git://github.com/sjbach/lusty-emacs.git
+[submodule "elisp/muse"]
+	path = elisp/muse
+	url = git://repo.or.cz/muse-el.git
