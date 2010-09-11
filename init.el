@@ -1,6 +1,9 @@
 (eval-when-compile
   (require 'boxquote)
-  (require 'cc-mode))
+  (require 'epg-config)
+  (require 'cc-mode)
+  (require 'erlang)
+  (require 'w3m))
 
 ;; definintions
 (defun add-to-load-path (path)
@@ -152,8 +155,7 @@
 (require 'boxquote)
 
 ;; erlang
-(setq erlang-root-dir (concat system-prefix "/lib/erlang")
-	  erlang-man-root-dir erlang-root-dir)
+(setq erlang-man-root-dir (concat system-prefix "/lib/erlang"))
 (add-hook 'erlang-mode-hook (set-tab-width 4))
 (require 'erlang-start)
 
@@ -294,7 +296,7 @@
 (add-hook 'org-mode-hook 'flyspell-mode)
 
 ;; load blog settings
-(load ".blog.el")
+(load (e-f-n (concat user-emacs-directory ".blog.el")))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
