@@ -1,9 +1,6 @@
 (eval-when-compile
-  (require 'boxquote)
   (require 'epg-config)
-  (require 'cc-mode)
-  (require 'erlang)
-  (require 'w3m))
+  (require 'cc-mode))
 
 ;; definintions
 (defun add-to-load-path (path)
@@ -77,7 +74,8 @@
 		"elisp/lusty-emacs"
 		"elisp/muse/lisp"
 		"elisp/blog"
-		"elisp/auto-complete"))
+		"elisp/auto-complete"
+		"elisp/markdown-mode"))
 
 ;; key-bindings
 (mapc
@@ -300,6 +298,11 @@
 
 ;; php-mode
 (autoload 'php-mode "php-mode-improved" "Loads php-mode" t)
+
+;; markdown-mode
+(autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.text" . markdown-mode))
+
 
 ;; Local Variables:
 ;; mode: emacs-lisp
