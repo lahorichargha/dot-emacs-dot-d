@@ -298,6 +298,9 @@
 ;; load blog settings
 (load (e-f-n (concat user-emacs-directory ".blog.el")))
 
+;; php-mode
+(autoload 'php-mode "php-mode-improved" "Loads php-mode" t)
+
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; tab-width: 4

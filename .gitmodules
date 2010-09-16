@@ -25,3 +25,6 @@
 [submodule "elisp/muse"]
 	path = elisp/muse
 	url = git://repo.or.cz/muse-el.git
+[submodule "elisp/markdown-mode"]
+	path = elisp/markdown-mode
+	url = git://jblevins.org/git/markdown-mode.git
