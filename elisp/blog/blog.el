@@ -112,7 +112,8 @@
 									  cats))))))) (newline)))
      `(("Date" . ,(format-time-string "%Y-%m-%dT%T%z" (current-time)))
        ("Subject" . ,(or blog-default-title ""))
-       ("Categories" .  ,blog-default-categories)))
+       ("Categories" .  ,blog-default-categories)
+	   ("Tags" . "")))
     (newline)
     (insert "--[post] Type your post below this line [post]--")
     (newline)
@@ -128,7 +129,7 @@
     (save-excursion
       (setq list-headers '())
       (goto-char (point-min))
-      (dolist (item '("Date" "Subject" "Categories"))
+      (dolist (item '("Date" "Subject" "Categories" "Tags"))
 		(when (looking-at (concat "**" item))
 		  (add-to-list 'list-headers (cons item (buffer-substring-no-properties 
 												 (search-forward ": ")
@@ -159,7 +160,8 @@
 						 blog-server-blogid
 						 `(("description" . ,html-text)
 						   ("title" . ,(cdr (assoc "Subject" list-headers)))
-						   ("categories" . ,(cdr (assoc "Categories" list-headers))))
+						   ("categories" . ,(cdr (assoc "Categories" list-headers)))
+						   ("tags" . ,(cdr (assoc "Tags" list-headers))))
 						 publish)
 	(kill-buffer)))
 
@@ -183,13 +185,14 @@
 		(goto-char current-pos)
 		(command-execute (lookup-key muse-mode-map "\t"))))))
 
-(defmacro defblog (user blogid &optional pwd)
-  `(defun ,(intern (concat "my-blog-" user))
+(defmacro defblog (user blogid &optional secure pwd)
+  `(defun ,(intern (concat "my-blog-" (replace-regexp-in-string "[.]" "--" blogid) "-" user))
 	 nil
 	 (interactive)
-	 (setq blog-server-url ,(concat "https://" blogid "/xmlrpc.php")
+	 (setq blog-server-url ,(concat (if secure "https" "http") "://" blogid "/xmlrpc.php")
 		   blog-server-user ,user
 		   blog-server-pass ,pwd
-		   blog-server-weblog-id ,blogid)))
+		   blog-server-weblog-id ,blogid
+		   blog-logged-in nil)))
 
 (provide 'blog)

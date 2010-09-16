@@ -31,9 +31,10 @@ published, otherwise it is saved as draft. CONTENT will be an alist
 title, description, categories, and date as keys (string-ified) mapped to the
 title of the post, post contents, list of categories, and date respectively." 
   (let ((post-title (cdr (assoc "title" content)))
-	(post-description (cdr (assoc "description" content)))
-	(post-categories (cdr (assoc "categories" content)))
-	(post-date (cdr (assoc "date" content))))
+		(post-description (cdr (assoc "description" content)))
+		(post-categories (cdr (assoc "categories" content)))
+		(post-tags (cdr (assoc "tags" content)))
+		(post-date (cdr (assoc "date" content))))
   ;;; since xml-rpc-method-call entitifies the HTML text in the post
   ;;; we've to use raw
   (xml-rpc-xml-to-response (xml-rpc-request
@@ -68,7 +69,11 @@ title of the post, post contents, list of categories, and date respectively."
 						       (mapcar
 							(lambda(f)
 							  `(value nil (string nil ,f)))
-							post-categories)))))))))
+							post-categories))))))
+				 ,(when post-tags
+				    `(member nil 
+					     (name nil "mt_keywords")
+					     (value nil ,post-tags))))))
 	      (param nil (value nil (boolean nil ,(if publish "1" "0")))))))))))
 
 (defun metaweblog-get-post(blog-xmlrpc user-name password post-id)
