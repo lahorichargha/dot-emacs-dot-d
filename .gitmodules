@@ -28,3 +28,6 @@
 [submodule "elisp/markdown-mode"]
 	path = elisp/markdown-mode
 	url = git://jblevins.org/git/markdown-mode.git
+[submodule "elisp/muse-blog"]
+	path = elisp/muse-blog
+	url = git://git.naquadah.org/muse-blog.git
