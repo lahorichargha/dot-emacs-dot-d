@@ -303,6 +303,9 @@
 (autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.text" . markdown-mode))
 
+;; epa
+(eval-after-load "epa"
+  (setq epa-armor t))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
