@@ -31,3 +31,6 @@
 [submodule "elisp/muse-blog"]
 	path = elisp/muse-blog
 	url = git://git.naquadah.org/muse-blog.git
+[submodule "elisp/gnus"]
+	path = elisp/gnus
+	url = http://git.gnus.org/gnus.git
