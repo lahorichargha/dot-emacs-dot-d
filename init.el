@@ -1,5 +1,6 @@
 (eval-when-compile
   (require 'epg-config)
+  (require 'epa)
   (require 'cc-mode))
 
 ;; definintions
@@ -75,6 +76,7 @@
 		"elisp/muse/lisp"
 		"elisp/blog"
 		"elisp/auto-complete"
+;;		"elisp/gnus"
 		"elisp/markdown-mode"))
 
 ;; key-bindings
@@ -306,6 +308,9 @@
 ;; epa
 (eval-after-load "epa"
   (setq epa-armor t))
+
+;; no-gnus
+;  (require 'gnus-load)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
