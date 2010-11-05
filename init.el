@@ -312,6 +312,9 @@
 ;; no-gnus
 ;  (require 'gnus-load)
 
+;; whois
+(setq whois-server-name "whois.internic.net")
+
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; tab-width: 4

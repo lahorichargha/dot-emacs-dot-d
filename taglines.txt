@@ -123,3 +123,4 @@
 “With great powers comes a huge electricity bill.” ("Subhro Sankha Kar", 2010)
 “Weird is how I'm wired.” (abbe, 2010)
 “"Intellectual Property" is nowhere near as valuable as "Intellect"” (Ion-Mihai Tetcu, ".sig of Ion-Mihai Tetcu")
+“All programming is an exercise in caching.” (Terje Mathisen)
