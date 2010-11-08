@@ -122,5 +122,6 @@
 “The camera is to the brush what Java is to assembly.” ("Sougata Santra", ".sig of Sir Debarshi Ray", 2010)
 “With great powers comes a huge electricity bill.” ("Subhro Sankha Kar", 2010)
 “Weird is how I'm wired.” (abbe, 2010)
-“"Intellectual Property" is nowhere near as valuable as "Intellect"” (Ion-Mihai Tetcu, ".sig of Ion-Mihai Tetcu")
+“"Intellectual Property" is nowhere near as valuable as "Intellect"” ("Ion-Mihai Tetcu", ".sig of Ion-Mihai Tetcu")
 “All programming is an exercise in caching.” (Terje Mathisen)
+“It's good to be wrong. Don't feel shamed. Wear past mistakes as a badge of honor because growth is everything. To stop learning is to decay.” ("apokalyptik", "in a conversation to abbe", 2010)
