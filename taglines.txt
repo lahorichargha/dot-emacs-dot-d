@@ -107,7 +107,7 @@
 “At some point, bits have to go into packets and routers need to make decisions on them. Changes at that level is what I want to hear about, not strategic company relationships.” (John Carmack)
 “Q: Why UNIX geeks feel the need of a wife ? A: Since all UNIX geeks possess a large fortune db and according to Law of Jane Austen, It is a universal truth that a single man with a large fortune is in need of a wife.” (abbe, 2009)
 “We've so many people in India, that we're able to route each network packet manually.” (nobotz)
-“She dump(1)-ed me without caring to restore(1).” (abbe, 2005)
+“She dump(8)-ed me without caring to restore(8).” (abbe, 2005)
 “With no power, comes no responsibility.” (Kick-Ass, 2010)
 “Keep your BitTorrent clients running and make the world a better place to live in.” (Sir Debarshi Ray, ".signature", 2010)
 “I find it amazing that a man who lives in France can sue a magazine that is published in America in a British courtroom.” ("Graydon Carter", 2005)
