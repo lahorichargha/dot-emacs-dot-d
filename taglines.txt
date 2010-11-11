@@ -125,3 +125,4 @@
 “"Intellectual Property" is nowhere near as valuable as "Intellect"” ("Ion-Mihai Tetcu", ".sig of Ion-Mihai Tetcu")
 “All programming is an exercise in caching.” (Terje Mathisen)
 “It's good to be wrong. Don't feel shamed. Wear past mistakes as a badge of honor because growth is everything. To stop learning is to decay.” ("apokalyptik", "in a conversation to abbe", 2010)
+“In Soviet Russia, light bulb screws you.” ("Lord Dragon aka Aaditya Bhatia", 2010)
