@@ -34,3 +34,6 @@
 [submodule "elisp/gnus"]
 	path = elisp/gnus
 	url = http://git.gnus.org/gnus.git
+[submodule "elisp/geiser"]
+	path = elisp/geiser
+	url = git://git.sv.gnu.org/geiser.git
