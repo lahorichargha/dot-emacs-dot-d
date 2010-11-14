@@ -1,6 +1,7 @@
 (eval-when-compile
   (require 'epg-config)
   (require 'epa)
+  (require 'net-utils)
   (require 'cc-mode))
 
 ;; definintions
@@ -77,6 +78,7 @@
 		"elisp/blog"
 		"elisp/auto-complete"
 ;;		"elisp/gnus"
+		"elisp/geiser/elisp"
 		"elisp/markdown-mode"))
 
 ;; key-bindings
@@ -312,8 +314,12 @@
 ;; no-gnus
 ;  (require 'gnus-load)
 
+;; geiser
+(require 'geiser)
+
 ;; whois
-(setq whois-server-name "whois.internic.net")
+(eval-after-load "net-utils"
+  '(setq whois-server-name "whois.internic.net"))
 
 ;; Local Variables:
 ;; mode: emacs-lisp
