@@ -127,3 +127,4 @@
 “It's good to be wrong. Don't feel shamed. Wear past mistakes as a badge of honor because growth is everything. To stop learning is to decay.” ("apokalyptik", "in a conversation to abbe", 2010)
 “In Soviet Russia, light bulb screws you.” ("Lord Dragon aka Aaditya Bhatia", 2010)
 “To exit(3) fork(3)-ing them, that's for the UNIX.” ("abbe", "IRC", 2010)
+“Life's unfair - but root password helps!” ("Eygene Ryabinkin", ".sig of Eygene Ryabinkin", 2010)
