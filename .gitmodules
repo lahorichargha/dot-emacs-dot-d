@@ -37,3 +37,6 @@
 [submodule "elisp/geiser"]
 	path = elisp/geiser
 	url = git://git.sv.gnu.org/geiser.git
+[submodule "elisp/egg"]
+	path = elisp/egg
+	url = git://github.com/byplayer/egg.git

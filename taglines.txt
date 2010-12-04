@@ -128,3 +128,4 @@
 “In Soviet Russia, light bulb screws you.” ("Lord Dragon aka Aaditya Bhatia", 2010)
 “To exit(3) fork(3)-ing them, that's for the UNIX.” ("abbe", "IRC", 2010)
 “Life's unfair - but root password helps!” ("Eygene Ryabinkin", ".sig of Eygene Ryabinkin", 2010)
+“a single key cn make sch a drastic change in d meanin” ("sh", "IM", 2010)
