@@ -321,6 +321,10 @@
 (eval-after-load "net-utils"
   '(setq whois-server-name "whois.internic.net"))
 
+;; tramp
+(require 'tramp)
+(load (concat user-emacs-directory "elisp/785600/toggle-root"))
+
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; tab-width: 4
