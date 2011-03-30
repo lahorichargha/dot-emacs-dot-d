@@ -43,3 +43,6 @@
 [submodule "elisp/785600"]
 	path = elisp/785600
 	url = git://gist.github.com/785600.git
+[submodule "elisp/zenirc"]
+	path = elisp/zenirc
+	url = git://github.com/emacsmirror/zenirc.git

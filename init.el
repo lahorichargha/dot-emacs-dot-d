@@ -325,6 +325,10 @@
 (require 'tramp)
 (load (concat user-emacs-directory "elisp/785600/toggle-root"))
 
+;; load theme
+(when (fboundp 'load-theme)
+  (load-theme 'tango-dark))
+
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; tab-width: 4
