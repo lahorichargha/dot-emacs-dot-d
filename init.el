@@ -326,7 +326,8 @@
 (load (concat user-emacs-directory "elisp/785600/toggle-root"))
 
 ;; load theme
-(when (fboundp 'load-theme)
+(when (and (fboundp 'load-theme)
+		   (> emacs-major-version 23))
   (load-theme 'tango-dark))
 
 ;; Local Variables:
